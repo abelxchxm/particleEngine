@@ -1,0 +1,5 @@
+pkg-config --cflags --libs sdl2
+
+g++ sdldemo.cpp -o sdldemo -lSDL -lGL -lGLU
+
+g++ -Wall wxdemo.cpp -o wxdemo `wx-config --cppflags --libs` -lGL -lGLU

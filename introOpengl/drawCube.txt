@@ -1,0 +1,151 @@
+    // Draw cube
+    glBegin(GL_QUADS);
+        // Top face
+        glNormal3f(0, 1, 0);
+        glTexCoord2f(2.0f,2.0f); glVertex3f(1.0f,1.0f,-1.0f);
+        glTexCoord2f(0.0f,2.0f); glVertex3f(-1.0f,1.0f,-1.0f);
+        glTexCoord2f(0.0f,0.0f); glVertex3f(-1.0f,1.0f,1.0f);
+        glTexCoord2f(2.0f,0.0f); glVertex3f(1.0f,1.0f,1.0f);
+
+        // Bottom face
+        glNormal3f(0, -1, 0);
+        glTexCoord2f(1.0f,1.0f);glVertex3f(1.0f,-1.0f,-1.0f);
+        glTexCoord2f(0.0f,1.0f); glVertex3f(-1.0f,-1.0f,-1.0f);
+        glTexCoord2f(0.0f,0.0f); glVertex3f(-1.0f,-1.0f,1.0f);
+        glTexCoord2f(1.0f,0.0f); glVertex3f(1.0f,-1.0f,1.0f);
+
+        // Front face
+        glNormal3f(0, 0, 1);
+        glTexCoord2f(1.0f,1.0f);glVertex3f(1.0f,1.0f,1.0f);
+        glTexCoord2f(0.0f,1.0f); glVertex3f(-1.0f,1.0f,1.0f);
+        glTexCoord2f(0.0f,0.0f); glVertex3f(-1.0f,-1.0f,1.0f);
+        glTexCoord2f(1.0f,0.0f); glVertex3f(1.0f,-1.0f,1.0f);
+
+        // Back face
+        glNormal3f(0, 0, -1);
+        glTexCoord2f(1.0f,1.0f);glVertex3f(1.0f,1.0f,-1.0f);
+        glTexCoord2f(0.0f,1.0f); glVertex3f(-1.0f,1.0f,-1.0f);
+        glTexCoord2f(0.0f,0.0f); glVertex3f(-1.0f,-1.0f,-1.0f);
+        glTexCoord2f(1.0f,0.0f); glVertex3f(1.0f,-1.0f,-1.0f);
+
+        // Left face 
+        glNormal3f(1, 0, 0);
+        glTexCoord2f(1.0f,1.0f);glVertex3f(-1.0f,1.0f,1.0f);
+        glTexCoord2f(0.0f,1.0f); glVertex3f(-1.0f,1.0f,-1.0f);
+        glTexCoord2f(0.0f,0.0f); glVertex3f(-1.0f,-1.0f,-1.0f);
+        glTexCoord2f(1.0f,0.0f); glVertex3f(-1.0f,-1.0f,1.0f);
+
+        // Right face
+        glNormal3f(-1, 0, 0);
+        glTexCoord2f(1.0f,1.0f);glVertex3f(1.0f,1.0f,1.0f);
+        glTexCoord2f(0.0f,1.0f); glVertex3f(1.0f,1.0f,-1.0f);
+        glTexCoord2f(0.0f,0.0f); glVertex3f(1.0f,-1.0f,-1.0f);
+        glTexCoord2f(1.0f,0.0f); glVertex3f(1.0f,-1.0f,1.0f);
+    glEnd();
+
+
+GLvoid drawScene()
+{
+    glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+
+    glMatrixMode(GL_MODELVIEW);
+    glLoadIdentity();
+
+    glTranslatef(0,0,-5.0f);
+    glRotatef(cubeRotateX,1,0,0);
+    glRotatef(cubeRotateY,0,1,0);
+
+    for (int i = 0; i < (int)Light::lights.size(); i++)
+        Light::lights[i]->updateLight();
+
+    glColor3f(1.0f, 1.0f, 1.0f);
+
+    glBindTexture(GL_TEXTURE_2D, texture->texID);
+    
+    // Draw cube
+    glBegin(GL_QUADS);
+        // Top face
+        glNormal3f(0, 1, 0);
+        glTexCoord2f(2.0f,2.0f); glVertex3f(1.0f,1.0f,-1.0f);
+        glTexCoord2f(0.0f,2.0f); glVertex3f(-1.0f,1.0f,-1.0f);
+        glTexCoord2f(0.0f,0.0f); glVertex3f(-1.0f,1.0f,1.0f);
+        glTexCoord2f(2.0f,0.0f); glVertex3f(1.0f,1.0f,1.0f);
+
+        // Bottom face
+        glNormal3f(0, -1, 0);
+        glTexCoord2f(1.0f,1.0f);glVertex3f(1.0f,-1.0f,-1.0f);
+        glTexCoord2f(0.0f,1.0f); glVertex3f(-1.0f,-1.0f,-1.0f);
+        glTexCoord2f(0.0f,0.0f); glVertex3f(-1.0f,-1.0f,1.0f);
+        glTexCoord2f(1.0f,0.0f); glVertex3f(1.0f,-1.0f,1.0f);
+
+        // Front face
+        glNormal3f(0, 0, 1);
+        glTexCoord2f(1.0f,1.0f);glVertex3f(1.0f,1.0f,1.0f);
+        glTexCoord2f(0.0f,1.0f); glVertex3f(-1.0f,1.0f,1.0f);
+        glTexCoord2f(0.0f,0.0f); glVertex3f(-1.0f,-1.0f,1.0f);
+        glTexCoord2f(1.0f,0.0f); glVertex3f(1.0f,-1.0f,1.0f);
+
+        // Back face
+        glNormal3f(0, 0, -1);
+        glTexCoord2f(1.0f,1.0f);glVertex3f(1.0f,1.0f,-1.0f);
+        glTexCoord2f(0.0f,1.0f); glVertex3f(-1.0f,1.0f,-1.0f);
+        glTexCoord2f(0.0f,0.0f); glVertex3f(-1.0f,-1.0f,-1.0f);
+        glTexCoord2f(1.0f,0.0f); glVertex3f(1.0f,-1.0f,-1.0f);
+
+        // Left face 
+        glNormal3f(1, 0, 0);
+        glTexCoord2f(1.0f,1.0f);glVertex3f(-1.0f,1.0f,1.0f);
+        glTexCoord2f(0.0f,1.0f); glVertex3f(-1.0f,1.0f,-1.0f);
+        glTexCoord2f(0.0f,0.0f); glVertex3f(-1.0f,-1.0f,-1.0f);
+        glTexCoord2f(1.0f,0.0f); glVertex3f(-1.0f,-1.0f,1.0f);
+
+        // Right face
+        glNormal3f(-1, 0, 0);
+        glTexCoord2f(1.0f,1.0f);glVertex3f(1.0f,1.0f,1.0f);
+        glTexCoord2f(0.0f,1.0f); glVertex3f(1.0f,1.0f,-1.0f);
+        glTexCoord2f(0.0f,0.0f); glVertex3f(1.0f,-1.0f,-1.0f);
+        glTexCoord2f(1.0f,0.0f); glVertex3f(1.0f,-1.0f,1.0f);
+    glEnd();
+    glFlush();
+
+    // This line IS  MODIFIED in other window interfaces
+    SDL_GL_SwapBuffers();
+    displayFPS();
+}
+
+int main(int argc, char **argv)
+{
+   if (SDL_Init(SDL_INIT_VIDEO) < 0)
+   {
+      fprintf(stderr,"Unable to initialize SDL %s", SDL_GetError());
+      exit(1);
+   } 
+
+   if (SDL_SetVideoMode(windowWidth, windowHeight, 0, SDL_OPENGL) == NULL)
+   {
+       fprintf(stderr,"Unable to create OpenGL Scene: %s", SDL_GetError());
+       exit(2);
+   }
+
+   initGL(windowWidth, windowHeight);
+   int done = 0;
+   while(!done)
+   {
+       drawScene();
+       SDL_Event event;
+       while(SDL_PollEvent(&event))
+       {
+           if(event.type == SDL_QUIT)
+               done=1;
+           keys = SDL_GetKeyState(NULL);
+       }
+       if(checkKeys())
+           done = 1;
+   }
+
+   SDL_Quit();
+
+   return 1;
+}
+
+

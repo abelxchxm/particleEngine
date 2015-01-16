@@ -1,0 +1,55 @@
+# 
+
+newmtl Material__25
+Ka 0.588 0.588 0.588
+Kd 1 1 1
+Ks 0.9 0.9 0.9
+illum 2
+Ns 4
+map_Kd 12c14c70.tga
+
+newmtl Material__26
+Ka 0.588 0.588 0.588
+Kd 1 1 1
+Ks 0.9 0.9 0.9
+illum 2
+Ns 4
+map_Kd 13932ef0.tga
+map_opacity 13932ef0.tga
+map_d 13932ef0.tga
+
+newmtl Material__27
+Ka 0.588 0.588 0.588
+Kd 1 1 1
+Ks 0.9 0.9 0.9
+illum 2
+Ns 4
+map_Kd 19d89130.tga
+map_opacity 19d89130.tga
+map_d 19d89130.tga
+
+newmtl Material__28
+Ka 0.588 0.588 0.588
+Kd 1 1 1
+Ks 0.9 0.9 0.9
+illum 2
+Ns 4
+map_Kd 16cecd10.tga
+
+newmtl Material__29
+Ka 0.588 0.588 0.588
+Kd 1 1 1
+Ks 0.9 0.9 0.9
+illum 2
+Ns 4
+map_Kd 16c2e0d0.tga
+
+newmtl Material__30
+Ka 0.588 0.588 0.588
+Kd 1 1 1
+Ks 0.9 0.9 0.9
+illum 2
+Ns 4
+map_Kd 12dbd6d0.tga
+map_opacity 12dbd6d0.tga
+map_d 12dbd6d0.tga
